@@ -1,8 +1,10 @@
 import { type FormEvent } from 'react';
 
 export default function NewGoal() {
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    new FormData(e.currentTarget);
   };
 
   return (
