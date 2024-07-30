@@ -7,12 +7,14 @@ export type NewGoalProps = {
 export default function NewGoal({ onAddGoal }: NewGoalProps) {
   const goalRef = useRef<HTMLInputElement>(null);
   const summaryRef = useRef<HTMLInputElement>(null);
-
+  
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const enteredGoal = goalRef.current!.value;
     const enteredSummary = summaryRef.current!.value;
+
+    if (!enteredGoal || !enteredSummary) return;
 
     e.currentTarget.reset();
 
